@@ -76,15 +76,20 @@ img {
 /* Main */
 #start-screen {
   position: absolute;
-  bottom: 25%;
+  bottom: 20%;
 }
 
 #start-screen a {
   font-size: 70px;
   text-shadow: 5px 4px 0 #000;
   font-weight: 900;
+  transition: 0.3s ease;
 }
 
+#start-screen a:hover {
+  color: #7a7676;
+  transition: 0.3s ease;
+}
 /* Game screen */
 /* Main battle board container */
 #game-screen-active {
@@ -119,7 +124,6 @@ img {
 #game-screen-player {
   height: 40%;
   align-items: center;
-  /* background-color: #234f68; */
   justify-content: space-between;
 }
 
@@ -132,9 +136,7 @@ img {
 
 #player-pokemon img {
   width: 350px;
-  /* height: 300px; */
   object-fit: cover;
-  /* margin-top: 30px; */
 }
 
 .status-box {
@@ -173,7 +175,6 @@ img {
   border: 18px solid #c9a946;
   border-radius: 20px;
   display: flex;
-  /* position: relative; */
   padding: 20px;
 }
 
@@ -185,7 +186,6 @@ img {
 /* Section containing selectable Pokémon cards */
 #pokemon-box {
   display: flex;
-  /* align-items: center; */
   position: absolute;
   right: 0;
   bottom: 0;
@@ -201,7 +201,6 @@ img {
 
 /* Individual Pokémon choice card */
 .pokemon-card {
-  /* background-color: orange; */
   width: 33%;
   height: 100%;
   display: flex;
@@ -212,6 +211,12 @@ img {
   border-radius: 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  transition: 0.1s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-7px);
+  transition: 0.1s ease;
 }
 
 .pokemon-card img {
@@ -222,7 +227,6 @@ img {
 /* Move selection button styling */
 .pokemon-card button {
   font-family: "Power Clear";
-  /* background-color: orange; */
   height: 100px;
   width: 100%;
   cursor: pointer;

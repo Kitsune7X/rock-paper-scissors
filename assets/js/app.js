@@ -40,84 +40,91 @@ const playerChoices = document.querySelector("#pokemon-box");
 // Message Overlay
 const message = document.querySelector("#game-screen-overlay span");
 
+// -------------------------------
+// Game Start
+// -------------------------------
+// The Game start when player pick a choice
+playerChoices.addEventListener("click", gameLogic);
+
+// -------------------------------
+// Functions
+// -------------------------------
+
+// Game Logic
+function gameLogic(e) {
+  let target = e.target;
+  const aiChoice = getAIChoice(aiPokemonArray);
+
+  if (target.id === "grass" || target.id === "btnGrass") {
+    playerPokemon.setAttribute("src", playerPokemonArray[0].path);
+    switch (aiChoice) {
+      case "Grass":
+        message.textContent = "It's a TIE!";
+        break;
+      case "Fire":
+        aiScoreValue++;
+        aiScore.textContent = `AI: ${aiScoreValue}`;
+        message.textContent = "It's NOT very EFFECTIVE!";
+        break;
+      case "Water":
+        playerScoreValue++;
+        playerScore.textContent = `PLAYER: ${playerScoreValue}`;
+        message.textContent = "It's SUPER EFFECTIVE!";
+        break;
+    }
+  } else if (target.id === "fire" || target.id === "btnFire") {
+    playerPokemon.setAttribute("src", playerPokemonArray[1].path);
+    switch (aiChoice) {
+      case "Grass":
+        playerScoreValue++;
+        playerScore.textContent = `PLAYER: ${playerScoreValue}`;
+        message.textContent = "It's SUPER EFFECTIVE!";
+        break;
+      case "Fire":
+        message.textContent = "It's a TIE!";
+        break;
+      case "Water":
+        aiScoreValue++;
+        aiScore.textContent = `AI: ${aiScoreValue}`;
+        message.textContent = "It's NOT very EFFECTIVE!";
+        break;
+    }
+  } else {
+    playerPokemon.setAttribute("src", playerPokemonArray[2].path);
+    switch (aiChoice) {
+      case "Grass":
+        aiScoreValue++;
+        aiScore.textContent = `AI: ${aiScoreValue}`;
+        message.textContent = "It's NOT very EFFECTIVE!";
+        break;
+      case "Fire":
+        playerScoreValue++;
+        playerScore.textContent = `PLAYER: ${playerScoreValue}`;
+        message.textContent = "It's SUPER EFFECTIVE!";
+        break;
+      case "Water":
+        message.textContent = "It's a TIE!";
+    }
+  }
+
+  if (playerScoreValue === WIN_SCORE) {
+    isGameOver = true;
+    message.textContent = "PLAYER WINS!";
+  }
+  if (aiScoreValue === WIN_SCORE) {
+    isGameOver = true;
+    message.textContent = "AI WINS!";
+  }
+
+  // Game State
+  if (isGameOver) {
+    playerChoices.removeEventListener("click", gameLogic);
+  }
+}
+
 // Get Random AI Choice
 function getAIChoice(arr) {
   let index = Math.floor(Math.random() * arr.length);
   aiPokemon.setAttribute("src", arr[index].path);
   return arr[index].name;
 }
-
-// Game State
-
-// Get Player Choice
-playerChoices.addEventListener(
-  "click",
-  (e) => {
-    let target = e.target;
-    const aiChoice = getAIChoice(aiPokemonArray);
-
-    if (target.id === "grass" || target.id === "btnGrass") {
-      playerPokemon.setAttribute("src", playerPokemonArray[0].path);
-      switch (aiChoice) {
-        case "Grass":
-          message.textContent = "It's a TIE!";
-          break;
-        case "Fire":
-          aiScoreValue++;
-          aiScore.textContent = `AI: ${aiScoreValue}`;
-          message.textContent = "It's NOT very EFFECTIVE!";
-          break;
-        case "Water":
-          playerScoreValue++;
-          playerScore.textContent = `PLAYER: ${playerScoreValue}`;
-          message.textContent = "It's SUPER EFFECTIVE!";
-          break;
-      }
-    } else if (target.id === "fire" || target.id === "btnFire") {
-      playerPokemon.setAttribute("src", playerPokemonArray[1].path);
-      switch (aiChoice) {
-        case "Grass":
-          playerScoreValue++;
-          playerScore.textContent = `PLAYER: ${playerScoreValue}`;
-          message.textContent = "It's SUPER EFFECTIVE!";
-          break;
-        case "Fire":
-          message.textContent = "It's a TIE!";
-          break;
-        case "Water":
-          aiScoreValue++;
-          aiScore.textContent = `AI: ${aiScoreValue}`;
-          message.textContent = "It's NOT very EFFECTIVE!";
-          break;
-      }
-    } else {
-      playerPokemon.setAttribute("src", playerPokemonArray[2].path);
-      switch (aiChoice) {
-        case "Grass":
-          aiScoreValue++;
-          aiScore.textContent = `AI: ${aiScoreValue}`;
-          message.textContent = "It's NOT very EFFECTIVE!";
-          break;
-        case "Fire":
-          playerScoreValue++;
-          playerScore.textContent = `PLAYER: ${playerScoreValue}`;
-          message.textContent = "It's SUPER EFFECTIVE!";
-          break;
-        case "Water":
-          message.textContent = "It's a TIE!";
-      }
-    }
-
-    if (playerScoreValue === WIN_SCORE) {
-      isGameOver = true;
-      message.textContent = "PLAYER WINS!";
-      return isGameOver;
-    }
-    if (aiScoreValue === WIN_SCORE) {
-      isGameOver = true;
-      message.textContent = "AI WINS!";
-      return isGameOver;
-    }
-  },
-  { capture: true }
-);
