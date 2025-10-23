@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* Full-screen backdrop and base typography */
 body {
   margin: 0;
   height: 100vh;
@@ -16,6 +17,7 @@ body {
   font-family: "Power Clear";
 }
 
+/* Neutralize default button chrome so custom styles stand out */
 button {
   background: none;
   border: none;
@@ -33,22 +35,23 @@ img {
   height: 100%;
 }
 
+/* Start screen splash artwork */
 .start-screen-bg {
-  background-image: url(../images/title.png);
+  background-image: url(../images/title-bg.jpg);
   background-size: contain;
   align-items: flex-end;
 }
 
+/* Shared battle backdrop for the active game */
 .game-screen-bg {
   background-image: url(../images/battle-background2.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+/* Primary canvas that holds both game and control layers */
 #canvas {
-  /* width: 1200px; */
   aspect-ratio: 3 / 2;
-  /* height: 100%; */
   background-color: #000;
   background-position: center;
   color: #fff;
@@ -73,14 +76,17 @@ img {
 /* Main */
 #start-screen {
   position: absolute;
-  bottom: 15%;
+  bottom: 25%;
 }
 
 #start-screen a {
-  font-size: 50px;
+  font-size: 70px;
+  text-shadow: 5px 4px 0 #000;
+  font-weight: 900;
 }
 
 /* Game screen */
+/* Main battle board container */
 #game-screen-active {
   width: 100%;
   height: 675px;
@@ -91,22 +97,25 @@ img {
   flex-direction: column;
 }
 
+/* Computer opponent layout and positioning */
 #game-screen-computer {
   height: 60%;
   align-items: center;
   justify-content: space-between;
-  /* width: 100%; */
-  /* background-color: orange; */
 }
 
-#computer-pokemon {
+/* Computer Pokémon sprite wrapper */
+#ai-pokemon {
   max-height: 100%;
+  margin-right: 300px;
+  margin-top: 130px;
 }
 
-#computer-pokemon img {
+#ai-pokemon img {
   width: 200px;
 }
 
+/* Player side layout mirrors computer section */
 #game-screen-player {
   height: 40%;
   align-items: center;
@@ -114,9 +123,11 @@ img {
   justify-content: space-between;
 }
 
+/* Player Pokémon sprite wrapper */
 #player-pokemon {
   max-height: 100%;
   overflow: hidden;
+  margin-left: 130px;
 }
 
 #player-pokemon img {
@@ -126,6 +137,33 @@ img {
   /* margin-top: 30px; */
 }
 
+.status-box {
+  background-color: #f8f8d9;
+  width: 400px;
+
+  padding: 20px 30px;
+  border: 9px solid #1a3500;
+  border-radius: 30px;
+}
+
+.status-box span {
+  font-size: 60px;
+  color: #1a3500;
+  text-shadow: 4px 2px 0 #d9d1b1;
+}
+
+#ai-score {
+  margin: 0 0 130px 140px;
+  height: 120px;
+}
+
+#player-score {
+  width: 600px;
+  margin-right: 90px;
+  height: 200px;
+}
+
+/* Prompt/announcement bar across the bottom */
 #game-screen-overlay {
   background: #234f68;
   height: 280px;
@@ -144,6 +182,7 @@ img {
   text-shadow: 4px 2px 0px #685771;
 }
 
+/* Section containing selectable Pokémon cards */
 #pokemon-box {
   display: flex;
   /* align-items: center; */
@@ -160,6 +199,7 @@ img {
   justify-content: space-evenly;
 }
 
+/* Individual Pokémon choice card */
 .pokemon-card {
   /* background-color: orange; */
   width: 33%;
@@ -171,16 +211,15 @@ img {
   border: 6px solid #8989c9;
   border-radius: 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .pokemon-card img {
   width: 270px;
-  /* height: auto; */
-  /* margin-top: 30px; */
-  /* object-fit: cover; */
   object-fit: cover;
 }
 
+/* Move selection button styling */
 .pokemon-card button {
   font-family: "Power Clear";
   /* background-color: orange; */

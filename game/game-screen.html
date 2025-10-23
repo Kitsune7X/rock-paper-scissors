@@ -7,41 +7,47 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body>
+    <!-- Main game container with both players and controls -->
     <section id="canvas">
+      <!-- Area showing current round with computer and player sides -->
       <div id="game-screen-active" class="flex">
+        <!-- Computer side: score panel and chosen Pokémon -->
         <div id="game-screen-computer" class="flex">
-          <div class="status-box">
-            <span>SCORE: </span>
+          <div id="ai-score" class="status-box">
+            <span>AI: 0</span>
           </div>
-          <div id="computer-pokemon">
-            <img src="../assets/images/1.gif" />
+          <div id="ai-pokemon">
+            <img src="../assets/images/0.png" />
           </div>
         </div>
 
+        <!-- Player side: chosen Pokémon and score display -->
         <div id="game-screen-player" class="flex">
           <div id="player-pokemon">
-            <img src="../assets/images/back/4.gif" />
+            <img src="../assets/images/back/0.png" />
           </div>
-          <div class="status-box">
-            <span>SCORE: </span>
+          <div id="player-score" class="status-box">
+            <span>PLAYER: 0</span>
           </div>
         </div>
       </div>
 
+      <!-- Player move selection buttons -->
       <div id="pokemon-box">
-        <div id="bulbasar" class="pokemon-card">
-          <img src="../assets/images/static/1.png" />
-          <button id="btnGrass"><span>GRASS</span></button>
+        <div class="pokemon-card">
+          <img id="grass" src="../assets/images/static/1.png" />
+          <button id="btnGrass">GRASS</button>
         </div>
-        <div id="bulbasar" class="pokemon-card">
-          <img src="../assets/images/static/4.png" />
+        <div class="pokemon-card">
+          <img id="fire" src="../assets/images/static/4.png" />
           <button id="btnFire">FIRE</button>
         </div>
-        <div id="bulbasar" class="pokemon-card">
-          <img src="../assets/images/static/7.png" />
+        <div class="pokemon-card">
+          <img id="water" src="../assets/images/static/7.png" />
           <button id="btnWater">WATER</button>
         </div>
       </div>
+      <!-- In-game message banner -->
       <div id="game-screen-overlay">
         <span>What is your Choice?</span>
       </div>
