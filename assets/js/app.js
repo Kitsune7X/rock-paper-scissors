@@ -53,10 +53,12 @@ playerChoices.addEventListener("click", gameLogic);
 // Game Logic
 function gameLogic(e) {
   let target = e.target;
+  // Roll a random opponent pick before reacting to the user's click
   const aiChoice = getAIChoice(aiPokemonArray);
 
   if (target.id === "grass" || target.id === "btnGrass") {
     playerPokemon.setAttribute("src", playerPokemonArray[0].path);
+    // Compare Grass against the AI's selection and update scores/messages accordingly
     switch (aiChoice) {
       case "Grass":
         message.textContent = "It's a TIE!";
@@ -74,6 +76,7 @@ function gameLogic(e) {
     }
   } else if (target.id === "fire" || target.id === "btnFire") {
     playerPokemon.setAttribute("src", playerPokemonArray[1].path);
+    // Resolve the battle outcomes for a Fire pick
     switch (aiChoice) {
       case "Grass":
         playerScoreValue++;
@@ -91,6 +94,7 @@ function gameLogic(e) {
     }
   } else {
     playerPokemon.setAttribute("src", playerPokemonArray[2].path);
+    // Handle the remaining case where the player chose Water
     switch (aiChoice) {
       case "Grass":
         aiScoreValue++;
@@ -118,6 +122,7 @@ function gameLogic(e) {
 
   // Game State
   if (isGameOver) {
+    // Stop listening for further clicks once someone reaches the win score
     playerChoices.removeEventListener("click", gameLogic);
   }
 }
@@ -125,6 +130,7 @@ function gameLogic(e) {
 // Get Random AI Choice
 function getAIChoice(arr) {
   let index = Math.floor(Math.random() * arr.length);
+  // Swap the AI sprite to visualize the random choice and return its label
   aiPokemon.setAttribute("src", arr[index].path);
   return arr[index].name;
 }
