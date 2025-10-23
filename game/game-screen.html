@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Janken</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <section id="canvas">
+      <div id="game-screen-active" class="flex">
+        <div id="game-screen-computer" class="flex">
+          <div class="status-box">
+            <span>SCORE: </span>
+          </div>
+          <div id="computer-pokemon">
+            <img src="../assets/images/1.gif" />
+          </div>
+        </div>
+
+        <div id="game-screen-player" class="flex">
+          <div id="player-pokemon">
+            <img src="../assets/images/back/4.gif" />
+          </div>
+          <div class="status-box">
+            <span>SCORE: </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="pokemon-box">
+        <div id="bulbasar" class="pokemon-card">
+          <img src="../assets/images/static/1.png" />
+          <button id="btnGrass"><span>GRASS</span></button>
+        </div>
+        <div id="bulbasar" class="pokemon-card">
+          <img src="../assets/images/static/4.png" />
+          <button id="btnFire">FIRE</button>
+        </div>
+        <div id="bulbasar" class="pokemon-card">
+          <img src="../assets/images/static/7.png" />
+          <button id="btnWater">WATER</button>
+        </div>
+      </div>
+      <div id="game-screen-overlay">
+        <span>What is your Choice?</span>
+      </div>
+    </section>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
