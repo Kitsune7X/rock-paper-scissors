@@ -5,10 +5,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
 /* Full-screen backdrop and base typography */
 body {
   margin: 0;
-  height: 100vh;
   display: flex;
   background-image: url("../images/background.jpeg");
   background-size: cover;
@@ -51,7 +56,7 @@ img {
 
 /* Primary canvas that holds both game and control layers */
 #canvas {
-  aspect-ratio: 3 / 2;
+  /* aspect-ratio: 3 / 2; */
   background-color: #000;
   background-position: center;
   color: #fff;
@@ -60,6 +65,7 @@ img {
   flex-direction: column;
   align-items: center;
   position: relative;
+  width: 70%;
 }
 
 /* Font */
@@ -76,11 +82,11 @@ img {
 /* Main */
 #start-screen {
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
 }
 
 #start-screen a {
-  font-size: 70px;
+  font-size: 4.38em;
   text-shadow: 5px 4px 0 #000;
   font-weight: 900;
   transition: 0.3s ease;
@@ -94,11 +100,10 @@ img {
 /* Main battle board container */
 #game-screen-active {
   width: 100%;
-  height: 675px;
+  height: 70%;
   background-image: url(../images/battle-background2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  flex: 0 1 auto;
+  background-size: cover;
+  background-position: center;
   flex-direction: column;
 }
 
@@ -112,12 +117,12 @@ img {
 /* Computer Pokémon sprite wrapper */
 #ai-pokemon {
   max-height: 100%;
-  margin-right: 300px;
-  margin-top: 130px;
+  margin-right: 12rem;
+  margin-top: 5rem;
 }
 
 #ai-pokemon img {
-  width: 200px;
+  width: 12.5rem;
 }
 
 /* Player side layout mirrors computer section */
@@ -125,61 +130,61 @@ img {
   height: 40%;
   align-items: center;
   justify-content: space-between;
+  /* overflow: hidden; */
 }
 
 /* Player Pokémon sprite wrapper */
 #player-pokemon {
   max-height: 100%;
   overflow: hidden;
-  margin-left: 130px;
+  margin-left: 8rem;
 }
 
 #player-pokemon img {
-  width: 350px;
+  width: 21.2rem;
   object-fit: cover;
 }
 
 .status-box {
   background-color: #f8f8d9;
-  width: 400px;
+  width: 25rem;
 
-  padding: 20px 30px;
+  padding: 1.25rem 1.88rem;
   border: 9px solid #1a3500;
-  border-radius: 30px;
+  border-radius: 1.88rem;
 }
 
 .status-box span {
-  font-size: 60px;
+  font-size: 3rem;
   color: #1a3500;
   text-shadow: 4px 2px 0 #d9d1b1;
 }
 
 #ai-score {
-  margin: 0 0 130px 140px;
-  height: 120px;
+  margin: 0 0 8rem 8.1rem;
+  /* display: flex; */
+  height: 7rem;
 }
 
 #player-score {
-  width: 600px;
+  width: 27rem;
   margin-right: 90px;
-  height: 200px;
+  height: 10rem;
 }
 
 /* Prompt/announcement bar across the bottom */
 #game-screen-overlay {
   background: #234f68;
-  height: 280px;
-  width: 98%;
-  height: 280px;
+  height: 29%;
   width: 100%;
-  border: 18px solid #c9a946;
-  border-radius: 20px;
+  border: 1.2rem solid #c9a946;
+  border-radius: 1.2rem;
   display: flex;
-  padding: 20px;
+  padding: 1.3rem;
 }
 
 #game-screen-overlay span {
-  font-size: 60px;
+  font-size: 3rem;
   text-shadow: 4px 2px 0px #685771;
 }
 
@@ -190,12 +195,12 @@ img {
   right: 0;
   bottom: 0;
   background-color: #f8f8f8;
-  height: 300px;
+  height: 16em;
   width: 50%;
   align-items: center;
-  border: 15px solid #716881;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1rem solid #716881;
+  border-radius: 1.2rem;
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
   justify-content: space-evenly;
 }
 
@@ -208,7 +213,7 @@ img {
   justify-content: space-between;
   align-items: center;
   border: 6px solid #8989c9;
-  border-radius: 10px;
+  border-radius: 0.7rem;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: 0.1s ease;
@@ -220,22 +225,21 @@ img {
 }
 
 .pokemon-card img {
-  width: 270px;
+  width: 16.8rem;
   object-fit: cover;
 }
 
 /* Move selection button styling */
 .pokemon-card button {
   font-family: "Power Clear";
-  height: 100px;
+  height: 6rem;
   width: 100%;
   cursor: pointer;
-  font-size: 55px;
+  font-size: 3.4rem;
   color: #f8f8f8;
   text-shadow: 3px 2px 0px #525252;
   display: flex;
   justify-content: center;
-  padding-top: 7px;
   border-radius: 2px;
 }
 
