@@ -56,7 +56,6 @@ img {
 
 /* Primary canvas that holds both game and control layers */
 #canvas {
-  /* aspect-ratio: 3 / 2; */
   background-color: #000;
   background-position: center;
   color: #fff;
@@ -130,7 +129,6 @@ img {
   height: 40%;
   align-items: center;
   justify-content: space-between;
-  /* overflow: hidden; */
 }
 
 /* Player Pokémon sprite wrapper */
@@ -162,7 +160,6 @@ img {
 
 #ai-score {
   margin: 0 0 8rem 8.1rem;
-  /* display: flex; */
   height: 7rem;
 }
 
